@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">EcommerceAppMe</string>
+    <string name="logo_image">Logo image</string>
+    <string name="get_started_now">Get Started now</string>
+    <string name="our_app">our app</string>
+    <string name="create_an_account_or_log_in_to_explore">Create an account or log in to explore</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="enter_your_email">Enter your Email</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="enter_your_phone_number">Enter Your Phone number</string>
+    <string name="enter_your_full_name">Enter Your full name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="what_do_you_want_to_search">What do you want to search</string>
+    <string name="categories">Categories</string>
+    <string name="view_all">View All</string>
+    <string name="image_slider">Image Slider</string>
+</resources>
