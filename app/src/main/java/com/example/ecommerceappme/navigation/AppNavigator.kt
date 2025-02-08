@@ -35,6 +35,6 @@ class AppNavigator(private val navController : NavHostController) {
     }
 
     private fun hasBackStack():Boolean {
-        return navController.previousBackStackEntry != null
+        return navController.currentBackStackEntry != null
     }
 }

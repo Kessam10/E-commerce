@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
 import com.example.domain.entities.request.LoginRequestEntity
 import com.example.domain.useCases.auth.LoginUseCase
+import com.example.domain.useCases.auth.SetAccessTokenUseCase
 import com.example.ecommerceappme.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -13,7 +14,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val loginUseCase: LoginUseCase
+    private val loginUseCase: LoginUseCase,
+    private val setAccessToken: SetAccessTokenUseCase
 ):BaseViewModel() {
 
     var selectedTab by   mutableStateOf("login")
@@ -43,7 +45,9 @@ class LoginViewModel @Inject constructor(
                         email = email
                     )
                     val response = loginUseCase(request)
+                setAccessToken(response.token?:"")
                     isSuccess = true
+
 
             }
     }

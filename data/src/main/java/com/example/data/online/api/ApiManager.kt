@@ -18,15 +18,15 @@ object ApiManager {
 
     @Provides
     @Singleton
-    fun provideGsonConvertorFactory():GsonConverterFactory{
+    fun provideGsonConvertorFactory(): GsonConverterFactory {
         return GsonConverterFactory.create()
     }
 
     @Provides
     @Singleton
-    fun provideHttpLoggingInterceptor():Interceptor{
-        val loggingInterceptor = HttpLoggingInterceptor{message->
-            Log.e("API", message )
+    fun provideHttpLoggingInterceptor(): Interceptor {
+        val loggingInterceptor = HttpLoggingInterceptor { message ->
+            Log.e("API", message)
         }
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         return loggingInterceptor
@@ -34,7 +34,7 @@ object ApiManager {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(httpLoggingInterceptor: Interceptor):OkHttpClient{
+    fun provideOkHttpClient(httpLoggingInterceptor: Interceptor): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(httpLoggingInterceptor)
             .build()
@@ -45,8 +45,8 @@ object ApiManager {
     fun provideRetrofitInstance(
         gsonConverterFactory: GsonConverterFactory,
         okHttpClient: OkHttpClient
-    ):Retrofit{
-        return  Retrofit.Builder()
+    ): Retrofit {
+        return Retrofit.Builder()
             .baseUrl("https://ecommerce.routemisr.com/api/v1/")
             .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory)
@@ -55,8 +55,12 @@ object ApiManager {
 
     @Provides
     @Singleton
-    fun provideAuthService(retrofit: Retrofit):AuthService{
+    fun provideAuthService(retrofit: Retrofit): AuthService {
         return retrofit.create(AuthService::class.java)
     }
 
+    @Provides
+    @Singleton
+    fun provideCategoriesService(retrofit: Retrofit) =
+        retrofit.create(CategoriesService::class.java)
 }

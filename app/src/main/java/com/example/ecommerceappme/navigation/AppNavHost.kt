@@ -45,21 +45,33 @@ fun AppNavHost(modifier: Modifier = Modifier) {
             bottomBarState.value = true
             topBarState.value = true
         }
+
         else -> {
             bottomBarState.value = false
             topBarState.value = false
         }
     }
     Scaffold(
-        bottomBar = {if (bottomBarState.value){
-            MyBottomAppBar(
-                navigateToHome = { currentDestination.value = appNavigator.navigateTo(AppDestination.Home) },
-                navigateToCategories = { currentDestination.value = appNavigator.navigateTo(AppDestination.Categories) },
-                navigateToProfile = { currentDestination.value = appNavigator.navigateTo(AppDestination.Profile) },
-                navigateToWishList = { currentDestination.value = appNavigator.navigateTo(AppDestination.WishList) },
-                isVisible = bottomBarState.value,
-                currentDestination = currentDestination.value
-            )}
+        bottomBar = {
+            if (bottomBarState.value) {
+                MyBottomAppBar(
+                    navigateToHome = {
+                        currentDestination.value = appNavigator.navigateTo(AppDestination.Home)
+                    },
+                    navigateToCategories = {
+                        currentDestination.value =
+                            appNavigator.navigateTo(AppDestination.Categories)
+                    },
+                    navigateToProfile = {
+                        currentDestination.value = appNavigator.navigateTo(AppDestination.Profile)
+                    },
+                    navigateToWishList = {
+                        currentDestination.value = appNavigator.navigateTo(AppDestination.WishList)
+                    },
+                    isVisible = bottomBarState.value,
+                    currentDestination = currentDestination.value
+                )
+            }
         },
         modifier = modifier
     ) { innerPadding ->
@@ -70,23 +82,30 @@ fun AppNavHost(modifier: Modifier = Modifier) {
         ) {
             composable<AppDestination.Splash> {
                 SplashScreen(navigateToNextScreen = { destination ->
-                    navController.navigate(destination) {
-                        popUpTo(AppDestination.Splash) {
-                            inclusive = true
-                        } // 🔥 Remove Splash from back stack
-                    }
+                    currentDestination.value = appNavigator.navigateAndClearBackStack(destination)
                 })
             }
             composable<AppDestination.Login> {
                 LoginScreen(
-                    navigateToSignUp = { currentDestination.value = appNavigator.navigateTo(AppDestination.SignUp) },
-                    navigateToHome = { currentDestination.value = appNavigator.navigateAndClearBackStack(AppDestination.Home) }
+                    navigateToSignUp = {
+                        currentDestination.value = appNavigator.navigateTo(AppDestination.SignUp)
+                    },
+                    navigateToHome = {
+                        currentDestination.value =
+                            appNavigator.navigateAndClearBackStack(AppDestination.Home)
+                    }
                 )
             }
             composable<AppDestination.SignUp> {
                 SignupScreen(
-                    navigateToLogin = { currentDestination.value = appNavigator.navigateAndClearBackStack(AppDestination.Login) },
-                    navigateToHome = { currentDestination.value = appNavigator.navigateAndClearBackStack(AppDestination.Home) }
+                    navigateToLogin = {
+                        currentDestination.value =
+                            appNavigator.navigateAndClearBackStack(AppDestination.Login)
+                    },
+                    navigateToHome = {
+                        currentDestination.value =
+                            appNavigator.navigateAndClearBackStack(AppDestination.Home)
+                    }
                 )
             }
             composable<AppDestination.Home> {
