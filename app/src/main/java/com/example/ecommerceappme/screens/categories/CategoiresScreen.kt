@@ -26,94 +26,94 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ecommerceappme.R
 import com.example.ecommerceappme.ui.theme.darkGray
-
+//
+//@Composable
+//fun CategoryTitle(title: String, modifier: Modifier) {
+//    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+//        Text(
+//            title, style = MaterialTheme.typography.headlineSmall,
+//            fontWeight = FontWeight.SemiBold,
+//            modifier = modifier, color = darkGray
+//        )
+//
+//        Text(
+//            "view all",
+//            style = MaterialTheme.typography.bodyMedium,
+//            modifier = modifier,
+//            color = darkGray
+//        )
+//    }
+//}
+//
 @Composable
-fun CategoryTitle(title: String, modifier: Modifier) {
-    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-        Text(
-            title, style = MaterialTheme.typography.headlineSmall,
-            fontWeight = FontWeight.SemiBold,
-            modifier = modifier, color = darkGray
-        )
-
-        Text(
-            "view all",
-            style = MaterialTheme.typography.bodyMedium,
-            modifier = modifier,
-            color = darkGray
-        )
-    }
+fun CategoriesScreen( modifier: Modifier =  Modifier) {
+//    Column(modifier = modifier.height(400.dp)) {
+//        CategoryTitle("Categories", Modifier.padding(20.dp))
+//        LazyHorizontalGrid(rows = GridCells.Fixed(2)) {
+//            items(categoriesViewModel.categories.size) { index ->
+//                CategoryItem(
+//                    categoriesViewModel.categories[index],
+//                    Modifier
+//                        .height(10.dp)
+//                        .padding(10.dp)
+//                )
+//            }
+//
+//        }
+//    }
 }
-
-@Composable
-fun CategoriesScreen(categoriesViewModel: CategoriesViewModel = hiltViewModel(), modifier: Modifier) {
-    Column(modifier = modifier.height(400.dp)) {
-        CategoryTitle("Categories", Modifier.padding(20.dp))
-        LazyHorizontalGrid(rows = GridCells.Fixed(2)) {
-            items(categoriesViewModel.categories.size) { index ->
-                CategoryItem(
-                    categoriesViewModel.categories[index],
-                    Modifier
-                        .height(10.dp)
-                        .padding(10.dp)
-                )
-            }
-
-        }
-    }
-}
-
-@Composable
-fun CategoryItem(category: Category, modifier: Modifier) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        CategoryImage(
-            modifier = Modifier
-                .padding(5.dp)
-                .width(100.dp)
-                .height(100.dp)
-                .clip(shape = CircleShape),
-            image = category.Image,
-            ""
-        )
-        CategoryDescription(
-            text = category.text,
-            modifier = Modifier.padding(5.dp)
-        )
-    }
-}
-
-@Composable
-fun CategoryDescription(modifier: Modifier, text: String) {
-    Text(text = text, modifier = modifier, color = darkGray)
-}
-
-@Composable
-fun CategoryImage(modifier: Modifier, image: Int, contentDescription: String) {
-    Image(
-        painterResource(image),
-        contentDescription,
-        modifier = modifier,
-        contentScale = ContentScale.Crop
-    )
-
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun CategoryItemPreview() {
-    CategoryItem(Category(R.drawable.girl, ""), modifier = Modifier.padding(10.dp))
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ListPreview() {
-    CategoriesScreen(viewModel(), Modifier)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun titlePreview() {
-    CategoryTitle("Categories", Modifier.padding(vertical = 10.dp))
-
-}
+//
+//@Composable
+//fun CategoryItem(category: Category, modifier: Modifier) {
+//    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+//        CategoryImage(
+//            modifier = Modifier
+//                .padding(5.dp)
+//                .width(100.dp)
+//                .height(100.dp)
+//                .clip(shape = CircleShape),
+//            image = category.Image,
+//            ""
+//        )
+//        CategoryDescription(
+//            text = category.text,
+//            modifier = Modifier.padding(5.dp)
+//        )
+//    }
+//}
+//
+//@Composable
+//fun CategoryDescription(modifier: Modifier, text: String) {
+//    Text(text = text, modifier = modifier, color = darkGray)
+//}
+//
+//@Composable
+//fun CategoryImage(modifier: Modifier, image: Int, contentDescription: String) {
+//    Image(
+//        painterResource(image),
+//        contentDescription,
+//        modifier = modifier,
+//        contentScale = ContentScale.Crop
+//    )
+//
+//}
+//
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun CategoryItemPreview() {
+//    CategoryItem(Category(R.drawable.girl, ""), modifier = Modifier.padding(10.dp))
+//}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun ListPreview() {
+//    CategoriesScreen(viewModel(), Modifier)
+//}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun titlePreview() {
+//    CategoryTitle("Categories", Modifier.padding(vertical = 10.dp))
+//
+//}

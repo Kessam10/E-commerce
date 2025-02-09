@@ -5,3 +5,5 @@ sealed interface ApiResult<T> {
     data class Error<T>(val errorMsg:String): ApiResult<T>
     data class Success<T>(val data: T):ApiResult<T>
 }
+//sealed interface has no parameter
+//sealed class has parameter

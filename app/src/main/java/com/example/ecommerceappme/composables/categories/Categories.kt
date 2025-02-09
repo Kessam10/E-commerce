@@ -26,7 +26,6 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
-import com.example.domain.entities.categories.CategoryItemEntity
 import com.example.ecommerceappme.R
 import com.example.ecommerceappme.ui.theme.Blue
 
@@ -76,14 +75,15 @@ fun Categories(
             rows = GridCells.Fixed(2),
             modifier = Modifier
                 .fillMaxWidth()
-                .height(300.dp),
+                .height(300.dp)
+            ,
             verticalArrangement = Arrangement.spacedBy(8.dp),
             horizontalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             items(viewModel.categoriesState) { item ->
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
-                    modifier = Modifier
+                    modifier = Modifier.padding(start = 5.dp, end = 5.dp)
                 ) {
                     GlideImage(
                         model = item.image,

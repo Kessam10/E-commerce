@@ -6,9 +6,12 @@ import androidx.lifecycle.viewModelScope
 import com.example.domain.entities.categories.CategoryItemEntity
 import com.example.domain.useCases.categories.GetCategoriesUseCase
 import com.example.ecommerceappme.base.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
+@HiltViewModel
 class CategoriesViewModel  @Inject constructor(
     private val getCategoriesUseCase: GetCategoriesUseCase
 ): BaseViewModel() {

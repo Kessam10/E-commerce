@@ -10,7 +10,7 @@ fun CategoriesResponseModel.toEntity(): CategoriesResponse {
     return CategoriesResponse(
         metadata?.toEntity(),
         data?.map {
-            it?.toEntity()
+            it.toEntity()
         }, results = results
     )
 }
